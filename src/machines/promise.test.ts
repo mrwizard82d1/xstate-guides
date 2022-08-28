@@ -1,4 +1,4 @@
-import { interpret } from 'xstate';
+import {interpret, InterpreterFrom, StateFrom } from 'xstate';
 import promiseMachine from './promise';
 import { D } from "@mobily/ts-belt";
 
@@ -40,5 +40,16 @@ describe('newly created promiseMachine', () => {
             ['rejected'],
         ])('specifies final state %s', (stateName) => {
             expect(promiseMachine.states[stateName].type).toEqual('final');
+    });
+});
+
+describe('a state machine can be "run"', () => {
+    it.each([
+                { on: 'RESOLVE', to: 'resolved' },
+                { on: 'REJECT', to: 'rejected' },
+            ])('transitions on $on to $to', ({ on, to }) => {
+                const promiseService: InterpreterFrom<typeof promiseMachine> = interpret(promiseMachine).start();
+                const actual: StateFrom<typeof promiseMachine> = promiseService.send(on);
+                expect(actual.value).toEqual(to);
     });
 });
