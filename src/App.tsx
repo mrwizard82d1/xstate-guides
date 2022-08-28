@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from '@mui/material/Button';
+import PermanentDrawerLeft from "./PermanentDrawerLeft";
 
 function App() {
-  return <Button variant="contained">Hello World</Button>;
+  return  <PermanentDrawerLeft/>;
 }
 
 export default App;
