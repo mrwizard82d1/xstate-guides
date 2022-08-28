@@ -12,8 +12,12 @@ const promiseMachine = createMachine(
                     'REJECT': { target: 'rejected' },
                 },
             },
-            resolved: {},
-            rejected: {},
+            resolved: {
+                type: 'final',
+            },
+            rejected: {
+                type: 'final',
+            },
         },
     }
 );

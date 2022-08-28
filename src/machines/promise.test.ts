@@ -33,4 +33,12 @@ describe('newly created promiseMachine', () => {
         const nextState = promiseService.send({ type: on });
         expect(nextState.value).toEqual(to.target);
     });
+
+    it.each(
+        [
+            ['resolved'],
+            ['rejected'],
+        ])('specifies final state %s', (stateName) => {
+            expect(promiseMachine.states[stateName].type).toEqual('final');
+    });
 });
