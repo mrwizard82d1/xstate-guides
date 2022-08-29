@@ -1,6 +1,6 @@
 import { createMachine } from 'xstate';
 
-const promiseMachine = createMachine(
+export const promiseMachine = createMachine(
     {
         predictableActionArguments: true,  // Recommended for V5 compatibility
         id: 'promise',
@@ -21,5 +21,3 @@ const promiseMachine = createMachine(
         },
     }
 );
-
-export default promiseMachine;

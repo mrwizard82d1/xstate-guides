@@ -1,5 +1,5 @@
 import {interpret, InterpreterFrom, StateFrom } from 'xstate';
-import promiseMachine from './promise';
+import { promiseMachine  }from './promise';
 import { D } from "@mobily/ts-belt";
 
 
