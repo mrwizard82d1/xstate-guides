@@ -18,9 +18,24 @@ export const lightMachine = createMachine(
 
         // State definition
         states: {
-            green: {},
+            green: {
+                // Define an action referenced by a string
+                entry: 'alertGreen',
+            },
             yellow: {},
             red: {},
         },
     },
+    {
+        actions: {
+            // Action implementation
+            alertGreen: (_context: { elapsed: number, direction: string },
+                         _event) => {
+                alert('Green!');
+            }
+        },
+        delays: {},
+        guards: {},
+        services: {},
+    }
 );
