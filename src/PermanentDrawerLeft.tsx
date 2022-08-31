@@ -14,7 +14,9 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import CallSplitIcon from '@mui/icons-material/CallSplit';
-import { GettingStartedPromise } from "./GettingStartedPromise";
+
+// import { GettingStartedPromise } from './GettingStartedPromise';
+import { LightMachine } from './LightMachine'
 
 const drawerWidth = 240;
 
@@ -47,7 +49,7 @@ export default function PermanentDrawerLeft() {
                 <Toolbar />
                 <Divider />
                 <List>
-                    {['Getting Started (Promise)'].map((text, index) => (
+                    {['Getting Started (Promise)', 'Light Machine'].map((text, index) => (
                         <ListItem key={text} disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
@@ -77,7 +79,10 @@ export default function PermanentDrawerLeft() {
                 sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
             >
                 <Toolbar />
-                <GettingStartedPromise />
+                {/**
+                 <GettingStartedPromise />
+                 */}
+                <LightMachine />
             </Box>
         </Box>
     );
