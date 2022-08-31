@@ -31,7 +31,8 @@ export const lightMachine = createMachine(
             // Action implementation
             alertGreen: (_context: { elapsed: number, direction: string },
                          _event) => {
-                alert('Green!');
+                // Call to `alert` breaks `App` test. I do not know why.
+                // alert('Green!');
             }
         },
         delays: {},

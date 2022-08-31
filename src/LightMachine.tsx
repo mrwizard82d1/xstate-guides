@@ -1,5 +1,5 @@
 import { useMachine } from '@xstate/react';
-import { lightMachine } from './machines/light-machine';
+import { lightMachine } from './machines/light-machine-machines';
 
 export const LightMachine = () => {
     const [state, send] = useMachine(lightMachine);
