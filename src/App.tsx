@@ -2,6 +2,7 @@ import { A } from '@mobily/ts-belt';
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {CssBaseline} from '@mui/material';
+import Navbar from './Navbar';
 import {routes} from './routes';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
         <>
             <CssBaseline/>
             <Router>
+                <Navbar />
                 <Routes>
                     {A.map(routes, (route) => (
                         <Route key={route.key}
