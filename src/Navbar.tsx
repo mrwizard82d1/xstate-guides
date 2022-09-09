@@ -1,8 +1,14 @@
-import { Box, Container, Toolbar } from '@mui/material';
+import { A } from '@mobily/ts-belt';
+
+import { NavLink } from 'react-router-dom';
+
+import { Box, Container, Link, Toolbar } from '@mui/material';
 import Typography from "@mui/material/Typography";
 
+import { routes } from './routes';
+
 const Navbar = () => {
-   return (
+    return (
        <Box sx={{
            width: "100%",
            height: "auto",
@@ -18,6 +24,30 @@ const Navbar = () => {
                                }}>
                        XState Guides
                    </Typography>
+                   <Box>
+                       <Box sx={{
+                           display: "flex",
+                           flexDirection: "row",
+                           justifyContent: "flex-start",
+                           alignItems: "center",
+                           marginLeft: "1rem",
+                       }}>
+                           {A.map(routes, (page) => (
+                               <Link key={page.key}
+                                     component={NavLink}
+                                     to={page.path}
+                                     color="black"
+                                     underline="none"
+                                     variant="button"
+                                     sx={{
+                                         fontSize: "large",
+                                         marginLeft: "2rem",
+                                     }}>
+                                   {page.title}
+                               </Link>
+                           ))}
+                       </Box>
+                   </Box>
                </Toolbar>
            </Container>
        </Box> )
