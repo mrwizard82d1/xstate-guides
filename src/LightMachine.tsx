@@ -1,5 +1,6 @@
 import { useMachine } from '@xstate/react';
 import { lightMachine } from './machines/light-machine-machines';
+import Typography from "@mui/material/Typography";
 
 export const LightMachine = () => {
     const [state, send] = useMachine(lightMachine);
@@ -7,9 +8,9 @@ export const LightMachine = () => {
     return (
         <>
             <div>
-                <p>
+                <Typography>
                     Trip the light fantastic!
-                </p>
+                </Typography>
             </div>
         </>
     )

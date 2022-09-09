@@ -1,5 +1,16 @@
+import { Button, Typography } from '@mui/material';
+
 import { useMachine } from '@xstate/react';
 import { promiseMachine } from './machines/promise';
+
+const StateMessage = ({ isMatching, text }: { isMatching: boolean, text: string }) => (
+    <>
+        {isMatching &&
+            <Typography alignItems="center">
+                Loading
+            </Typography>}
+    </>
+);
 
 export const GettingStartedPromise = () => {
     const [state, send] = useMachine(promiseMachine);
@@ -7,13 +18,13 @@ export const GettingStartedPromise = () => {
     return (
         <>
             {/** One can listen to the state of the service */}
-            { state.matches('pending') && <p>Loading</p> }
-            { state.matches('rejected') && <p>Rejected</p> }
-            { state.matches('resolved') && <p>Resolved</p> }
+            {state.matches('pending') && <Typography>Loading</Typography>}
+            { state.matches('rejected') && <Typography>Rejected</Typography> }
+            { state.matches('resolved') && <Typography>Resolved</Typography> }
             <div>
                 {/** One can send events to the running service */}
-                <button onClick={() => send('RESOLVE')}>Resolve</button>
-                <button onClick={() => send('REJECT')}>Reject</button>
+                <Button onClick={() => send('RESOLVE')}>Resolve</Button>
+                <Button onClick={() => send('REJECT')}>Reject</Button>
             </div>
         </>
     )
